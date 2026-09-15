@@ -24,17 +24,17 @@ body {
   font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
-/* bagian transisi */
+/* Page Transition */
 
-::view-transition-old(root) {
-  animation: page-out 450ms ease-in-out;
+.page-exit {
+  animation: page-exit 450ms ease-in-out forwards;
 }
 
-::view-transition-new(root) {
-  animation: page-in 450ms ease-in-out;
+.page-enter {
+  animation: page-enter 450ms ease-out forwards;
 }
 
-@keyframes page-out {
+@keyframes page-exit {
   from {
     opacity: 1;
     transform: translateY(0);
@@ -42,24 +42,18 @@ body {
 
   to {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-8px);
   }
 }
 
-@keyframes page-in {
+@keyframes page-enter {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(8px);
   }
 
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@supports (view-transition-name: root) {
-  body {
-    view-transition-name: root;
   }
 }

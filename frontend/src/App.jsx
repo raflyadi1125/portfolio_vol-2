@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
@@ -13,9 +14,21 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 function Portfolio() {
+
+  const [isExiting, setIsExiting] = useState(false);
+  const navigate = useNavigate();
+
+  const handleHome = () => {
+    setIsExiting(true);
+
+    setTimeout(() => {
+      navigate("/");
+    }, 600);
+  };
+
   return (
-    <>
-      <Navbar />
+    <div className={isExiting ? "page-exit" : "page-enter"}>
+      <Navbar onHome={handleHome} />
       <Hero />
       <About />
       <School/>
@@ -24,8 +37,8 @@ function Portfolio() {
       <Experience />
       <Certificates />
       <Contact />
-      <Footer />
-    </>
+      <Footer onHome={handleHome}/>
+    </div>
   );
 }
 

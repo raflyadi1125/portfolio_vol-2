@@ -81,34 +81,34 @@ function Skills() {
   return (
     <section
       id="skills"
-      className="min-h-[80vh] bg-background px-6 py-20 md:px-12 lg:px-24"
+      className="scroll-mt-24 min-h-[80vh] bg-background px-5 py-16 sm:px-6 sm:py-20 md:px-12 lg:px-24"
     >
-      <div className="max-w-6xl mx-auto">
-        <p className="mb-2 text-sm font-medium uppercase tracking-[0.2em] text-navy">
+      <div className="mx-auto max-w-6xl">
+        <p className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-navy sm:text-sm">
           Kemampuan
         </p>
 
-        <h2 className="mb-12 text-4xl font-bold tracking-tight text-dark md:text-5xl">
+        <h2 className="mb-8 text-3xl font-bold tracking-tight text-dark sm:text-4xl md:mb-12 md:text-5xl">
           My Skills
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2">
           {skillCategories.map((category) => (
             <div
-              className="rounded-xl border border-gray-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-navy-light md:p-7"
+              className="rounded-xl border border-gray-border bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-navy-light sm:p-6 md:p-7"
               key={category.title}
             >
-              <h3 className="mb-5 text-xl font-semibold text-dark md:text-2xl">
+              <h3 className="mb-4 text-xl font-semibold text-dark sm:mb-5 sm:text-2xl">
                 {category.title}
               </h3>
 
-              <div className="flex flex-wrap gap-2.5">
+              <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill) => (
                   <a
                     href={skill.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full border border-gray-border bg-background px-4 py-2 text-sm font-medium text-gray-dark no-underline transition-all duration-200 hover:-translate-y-0.5 hover:border-navy-light hover:text-navy"
+                    className="rounded-full border border-gray-border bg-background px-3 py-2 text-xs font-medium text-gray-dark no-underline transition-all duration-200 hover:-translate-y-0.5 hover:border-navy-light hover:text-navy sm:px-4 sm:text-sm"
                     key={skill.name}
                   >
                     {skill.name}

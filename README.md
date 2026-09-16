@@ -200,8 +200,8 @@ Request body:
 
 ```json
 {
-  "name": "Rafly",
-  "email": "rafly@example.com",
+  "name": "Anonim",
+  "email": "anonim@example.com",
   "message": "Hello!"
 }
 ```

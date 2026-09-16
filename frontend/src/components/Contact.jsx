@@ -1,4 +1,61 @@
+import { useState } from "react";
+
 function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [status, setStatus] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (event) => {
+  event.preventDefault();
+
+  setIsLoading(true);
+  setStatus("");
+
+  try {
+    const response = await fetch("http://localhost:5000/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      setStatus(data.message);
+      return;
+    }
+
+    setStatus(data.message);
+
+    setFormData({
+      name: "",
+      email: "",
+      message: "",
+    });
+  } catch (error) {
+    console.error("Error:", error);
+    setStatus("Terjadi kesalahan pada server");
+  } finally {
+    setIsLoading(false);
+  }
+};
+
   return (
     <section
       id="contact"
@@ -75,20 +132,32 @@ function Contact() {
             </div>
           </div>
 
-          <form className="flex flex-col gap-3 sm:gap-4">
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-3 sm:gap-4"
+          >
             <input
               type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
               placeholder="Nama"
               className="box-border w-full rounded-lg border border-gray-border bg-white px-4 py-3 text-sm font-inherit text-dark outline-none transition-all duration-200 placeholder:text-gray-dark focus:border-navy focus:ring-1 focus:ring-navy sm:py-3.5 sm:text-base"
             />
 
             <input
               type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
               placeholder="Email"
               className="box-border w-full rounded-lg border border-gray-border bg-white px-4 py-3 text-sm font-inherit text-dark outline-none transition-all duration-200 placeholder:text-gray-dark focus:border-navy focus:ring-1 focus:ring-navy sm:py-3.5 sm:text-base"
             />
 
             <textarea
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
               placeholder="Pesan"
               rows={6}
               className="box-border w-full resize-none rounded-lg border border-gray-border bg-white px-4 py-3 text-sm font-inherit text-dark outline-none transition-all duration-200 placeholder:text-gray-dark focus:border-navy focus:ring-1 focus:ring-navy sm:py-3.5 sm:text-base"
@@ -96,10 +165,13 @@ function Contact() {
 
             <button
               type="submit"
-              className="rounded-lg border-0 bg-navy px-4 py-3 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-navy-light sm:py-3.5 sm:text-base"
+              disabled={isLoading}
+              className="rounded-lg border-0 bg-navy px-4 py-3 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-navy-light disabled:cursor-not-allowed disabled:opacity-60 sm:py-3.5 sm:text-base"
             >
-              Kirim Pesan
+              {isLoading ? "Mengirim..." : "Kirim Pesan"}
             </button>
+
+            {status && <p className="text-sm text-gray-dark">{status}</p>}
           </form>
         </div>
       </div>

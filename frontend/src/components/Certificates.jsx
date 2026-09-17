@@ -45,7 +45,7 @@ function Certificates() {
     <>
       <section
         id="certificates"
-        className="scroll-mt-24 min-h-[80vh] bg-white px-5 py-16 sm:px-6 sm:py-20 md:px-12 lg:px-24"
+        className="scroll-mt-10 min-h-[80vh] bg-white px-5 py-16 sm:px-6 sm:py-20 md:px-12 lg:px-24"
       >
         <div className="mx-auto max-w-6xl">
           <p className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-navy sm:text-sm">

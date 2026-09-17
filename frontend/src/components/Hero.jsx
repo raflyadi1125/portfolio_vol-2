@@ -34,7 +34,7 @@ function Hero() {
             Hubungi Saya
           </a>
           <a
-            href="/public/curriculum_vitae/CV-Adi_mr.docx"
+            href="/curriculum_vitae/CV-Adi_mr.docx"
             download
             className="rounded-lg border border-gray-border bg-white px-6 py-3 text-sm font-medium text-dark no-underline transition-all duration-200 hover:-translate-y-0.5 hover:border-navy-light hover:text-navy sm:text-base"
           >

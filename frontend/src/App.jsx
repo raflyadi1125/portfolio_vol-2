@@ -14,7 +14,6 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 function Portfolio() {
-
   const [isExiting, setIsExiting] = useState(false);
   const navigate = useNavigate();
 
@@ -28,16 +27,22 @@ function Portfolio() {
 
   return (
     <div className={isExiting ? "page-exit" : "page-enter"}>
-      <Navbar onHome={handleHome} />
-      <Hero />
-      <About />
-      <School/>
-      <Skills />
-      <Projects />
-      <Experience />
-      <Certificates />
-      <Contact />
-      <Footer onHome={handleHome}/>
+      <header className="sticky top-0 z-50">
+        <Navbar onHome={handleHome} />
+      </header>
+
+      <main>
+        <Hero />
+        <About />
+        <School />
+        <Skills />
+        <Projects />
+        <Experience />
+        <Certificates />
+        <Contact />
+      </main>
+
+      <Footer onHome={handleHome} />
     </div>
   );
 }
@@ -46,12 +51,12 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />}/>
-        
-        <Route path="/portfolio" element={<Portfolio />}/>
+        <Route path="/" element={<Home />} />
+
+        <Route path="/portfolio" element={<Portfolio />} />
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
 export default App;

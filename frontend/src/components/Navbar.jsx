@@ -15,7 +15,7 @@ function Navbar({ onHome }) {
   };
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-gray-border bg-white/95 backdrop-blur-sm">
+    <nav className="w-full border-b border-gray-border bg-white/95 backdrop-blur-sm">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-6">
         <Link
           to="/"

@@ -2,7 +2,7 @@ function About() {
   return (
     <section
       id="about"
-      className="scroll-mt-24 flex min-h-[80vh] items-center bg-background px-5 py-16 sm:px-6 sm:py-20 md:px-12 lg:px-24"
+      className="scroll-mt-10 flex min-h-[80vh] items-center bg-background px-5 py-16 sm:px-6 sm:py-20 md:px-12 lg:px-24"
     >
       <div className="w-full max-w-3xl">
         <p className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-navy sm:text-sm">

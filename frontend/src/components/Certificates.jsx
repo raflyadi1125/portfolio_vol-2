@@ -98,7 +98,7 @@ function Certificates() {
       {/* Modal Foto Sertifikat */}
       {selectedCertificate && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 px-4 py-6 sm:px-6 sm:py-10"
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 px-4 py-6 sm:px-6 sm:py-10"
           onClick={() => setSelectedCertificate(null)}
         >
           {/* Tombol Close */}
@@ -119,7 +119,7 @@ function Certificates() {
             <img
               src={selectedCertificate.image}
               alt={selectedCertificate.title}
-              className="max-h-[78vh] max-w-full rounded-lg object-contain sm:max-h-[85vh]"
+              className="h-auto max-h-[85vh] w-auto max-w-[90vw] rounded-lg object-contain"
             />
 
             <p className="mt-3 max-w-full px-10 text-center text-xs font-medium text-white sm:mt-4 sm:px-0 sm:text-sm">
